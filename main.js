@@ -66,6 +66,38 @@ const nightOwls = function(people) {
   return nightOwls;
 }
 
+// getToBed - returns a new list where every person object in the given 
+// list whose localTime is between 100 and 400 inclusive has their 
+// asleep property set to true. Does not mutate the original list. 
+// See warning about starting the number with 0 from previous problem's 
+// description.
+const getToBed = function(people) {
+  const allAsleep = [];
+
+  for(const person of people) {
+    if(nightOwlHelperFunction(person)) {
+      allAsleep.push(
+        {
+          name: person.name,
+          localTime: person.localTime,
+          asleep: true
+        }
+      );
+    }
+
+    else {
+      allAsleep.push(
+        {
+          name: person.name,
+          localTime: person.localTime,
+          asleep: person.asleep
+        }
+      );
+    }
+  }
+
+  return allAsleep;
+}
 
 
 
