@@ -116,6 +116,46 @@ const findIndices = function(list, callback) {
   return indices;
 }
 
+/* Faqtory - a factory function that returns an object with methods for 
+  managing a FAQ list. It contains an array of questions set to empty to 
+  start with, an addQuestion method for adding questions to the list, 
+  and an answerQuestion method for answering those questions that have yet
+  to be answered. See tests for details. NOTE: the questions being added 
+  are objects. Making a helper function that returns a question object may 
+  be worth it, but either way, make sure those questions are objects! 
+  HINT the id of a new question can be set by looking at how many 
+  questions are already in the list.
+*/
+const Faqtory = function() {
+  return {
+    questions: [],
+
+    makeQuestion: function(newText, newID, isAnswered, newAnswer) {
+      return {
+        text: newText,
+        id: newID,
+        answered: isAnswered || false,
+        answer: newAnswer || ""
+      }
+    },
+    
+    addQuestion: function(question) {
+      const newID = this.questions.length;
+      const newQuestion = this.makeQuestion(question, newID);
+      this.questions.push(newQuestion);
+    },
+
+    answerQuestion: function(qID, newAnswer) {
+      const answerThis = this.questions[qID];
+      if(answerThis.answered === false) {
+        answerThis.answered = true;
+        answerThis.answer = newAnswer;
+      }
+    }
+      
+    }
+}
+
 
 
 
