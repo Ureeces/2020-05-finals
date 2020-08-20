@@ -1,4 +1,25 @@
+const makeRunOn = function(paragraph) {
+  let runOn = "";
+  let index = 0;
 
+  for(const letter of paragraph) {
+    if(letter !== '.') {
+      runOn += letter;
+    }
+
+    else if(index === paragraph.length - 1) {
+      runOn += letter;
+    }
+
+    else {
+      runOn += ',';
+    }
+
+    index++;
+  }
+
+  return runOn;
+}
 
 
 
