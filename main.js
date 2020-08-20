@@ -21,6 +21,24 @@ const makeRunOn = function(paragraph) {
   return runOn;
 }
 
+const totalScore = function(levels, multiplier, bonus) {
+  let score = 0;
+
+  for(const level of levels) {
+    score += level.score;
+  }
+
+  if(multiplier) {
+    score *= multiplier;
+  }
+
+  if(bonus) {
+    score += bonus;
+  }
+
+  return score;
+}
+
 
 
 
