@@ -99,7 +99,22 @@ const getToBed = function(people) {
   return allAsleep;
 }
 
+/* findIndices - a function that takes a list and another function 
+  (a callback) as parameters and returns a new list holding the indices
+  of the list at which, when the corresponding element is passed into the 
+  callback function, it returns true. (See the test for precise examples!)
+*/
+const findIndices = function(list, callback) {
+  const indices = [];
 
+  for(const index in list) {
+    if(callback(list[index])) {
+      indices.push(Number(index));
+    }
+  }
+
+  return indices;
+}
 
 
 
